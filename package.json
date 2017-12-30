@@ -1,0 +1,13 @@
+{
+  "name": "watchlist",
+  "version": "1.0.0",
+  "description": "App to save movies I want to watch or have watched",
+  "main": "index.js",
+  "author": "Wembley G. Leach, Jr.",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0"
+  }
+}
