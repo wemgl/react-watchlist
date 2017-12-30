@@ -4,7 +4,7 @@ import Home from "./ui/components/Home"
 
 const routes =
     <Router history={hashHistory}>
-        <Route path="/" component={Home}/>
+        <Route exact path="/" component={Home}/>
     </Router>
 
 export default routes

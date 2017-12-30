@@ -1,0 +1,18 @@
+.nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0px -2px 10px gray;
+  &__list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__link {
+    color: gray;
+    &--selected {
+      color: #f53168;
+    }
+  }
+}
