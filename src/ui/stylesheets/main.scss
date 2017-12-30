@@ -1,8 +1,15 @@
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #e1e1e1;
 }
 
 .heading {
   text-align: center;
-  color: gray;
+  color: white;
+  font-weight: 400;
+}
+
+svg {
+  width: 2em;
+  height: 2em;
 }
