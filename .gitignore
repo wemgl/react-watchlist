@@ -50,3 +50,9 @@ crashlytics-build.properties
 fabric.properties
 
 node_modules/
+.DS_Store
+.idea/misc.xml
+.idea/modules.xml
+dist/assets/
+src/.DS_Store
+watchlist.iml
