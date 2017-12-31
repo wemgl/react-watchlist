@@ -2,6 +2,7 @@ import React from "react"
 import Navigation from "./Navigation"
 import "../stylesheets/main.scss"
 import MovieCard from "./MovieCard"
+import SearchBar from "./SearchBar"
 // import fetch from "isomorphic-fetch"
 
 export default class Home extends React.Component {
@@ -16,8 +17,9 @@ export default class Home extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1 className="heading">Movies</h1>
+            <div className="app">
+                <h1 className="app__heading">Movies</h1>
+                <SearchBar/>
                 <div>
                     <MovieCard/>
                 </div>

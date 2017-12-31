@@ -24,6 +24,10 @@ const config = {
             {
                 test: /\.scss$/,
                 loader: "style-loader!css-loader!autoprefixer-loader!sass-loader"
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                loader: "file-loader?name=images/img-[hash:6].[ext]"
             }
         ]
     }
