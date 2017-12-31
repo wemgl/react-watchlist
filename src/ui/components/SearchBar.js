@@ -28,6 +28,9 @@ export default class SearchBar extends React.Component {
                 this.setState({loading: false})
                 this.props.updateMovieList(movies)
             })
+            .catch(reason => {
+                console.log("Error:", reason)
+            })
     }
 
     render() {
