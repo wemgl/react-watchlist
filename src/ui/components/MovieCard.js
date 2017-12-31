@@ -1,15 +1,34 @@
 import React from "react"
-import "../stylesheets/movie-card.scss"
+import "../stylesheets/moviecard.scss"
 
 export default class MovieCard extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            movie: props.movie,
+            loading: false
+        }
+        this.getMovieInfo = this.getMovieInfo.bind(this)
+    }
+
+    getMovieInfo(movie) {
+
+    }
+
+    componentDidMount() {
+        // const movie = getInfo(this.props.movie)
+        // this.setState({movie})
+    }
+
     render() {
+        const {movie} = this.props
         return (
             <div className="movie">
                 <div>
-                    <img className="movie__poster" src={"http://via.placeholder.com/130x200"} alt="movie poster"/>
+                    <img className="movie__poster" src={movie.Poster} alt="movie poster"/>
                 </div>
                 <div className="movie__right">
-                    <h2 className="movie__title">Movie Title</h2>
+                    <h2 className="movie__title">{movie.Title}</h2>
                     <p className="movie__genres">
                         <span className="movie__genre">Genre #1</span>
                         <span className="movie__genre__separator">|</span>
