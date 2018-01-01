@@ -14,6 +14,7 @@ export default class Home extends React.Component {
     }
 
     updateMovieList(movies) {
+        this.setState({movies: []})
         this.setState({movies})
     }
 

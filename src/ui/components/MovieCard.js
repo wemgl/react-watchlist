@@ -57,7 +57,6 @@ export default class MovieCard extends React.Component {
                 }
             })
 
-        console.log("Codes:", codes)
         if (codes.length > 0) {
             return codes
                 .filter(code => typeof code !== "undefined")

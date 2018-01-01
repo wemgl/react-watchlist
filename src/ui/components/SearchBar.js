@@ -15,6 +15,11 @@ export default class SearchBar extends React.Component {
     submit(event) {
         event.preventDefault()
         const {query} = this.refs
+        console.log("query:", query.value)
+        if (query.value === "") {
+            return
+        }
+
         this.setState({loading: true, query: query.value})
         fetch(`http://www.omdbapi.com/?apikey=8a16b0ce&s=${encodeURIComponent(query.value)}`)
             .then(response => {
