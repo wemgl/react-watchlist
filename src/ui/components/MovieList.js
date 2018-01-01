@@ -14,6 +14,6 @@ export default class MovieList extends React.Component {
         const {movies} = this.props
         return (movies.length)
             ? this.renderMovies()
-            : <p style={{textAlign: "center", color: "white"}}>Search for any movie in the search field above to get started.</p>
+            : <p style={{textAlign: "center", color: "white"}}>Search for a movie to get started.</p>
     }
 }
