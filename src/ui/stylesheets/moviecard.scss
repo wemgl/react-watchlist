@@ -8,6 +8,7 @@ $lighter-gray: darken(#c1c1c1, 5%);
   background-color: #ffffff;
   border-radius: 15px;
   padding: 20px;
+  text-decoration: none;
   margin-bottom: 15px;
   &__right {
     padding-left: 20px;
@@ -69,5 +70,10 @@ $lighter-gray: darken(#c1c1c1, 5%);
   &__poster {
     width: 130px;
     height: 200px;
+  }
+  &__link {
+    display: flex;
+    text-decoration: none;
+    color: $dark-gray;
   }
 }

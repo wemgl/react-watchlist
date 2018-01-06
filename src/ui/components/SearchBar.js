@@ -15,7 +15,6 @@ export default class SearchBar extends React.Component {
     submit(event) {
         event.preventDefault()
         const {query} = this.refs
-        console.log("query:", query.value)
         if (query.value === "") {
             return
         }

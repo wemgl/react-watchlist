@@ -3,6 +3,7 @@ import "../stylesheets/moviecard.scss"
 import fetch from "isomorphic-fetch"
 import isoLanguages from './iso-languages.json'
 import bs from 'binarysearch'
+import {Link} from "react-router-dom";
 
 export default class MovieCard extends React.Component {
     constructor(props) {
@@ -86,24 +87,31 @@ export default class MovieCard extends React.Component {
 
     render() {
         const {movie} = this.state
+        if (movie.imdbID === "N/A") {
+            return null
+        }
+
+        const path = `/details/${movie.imdbID}`
         return (this.state.loading) ? <p>Loading {movie.Title} data...</p>
             : <div className="movie" data-imdbid={movie.imdbID}>
-                <div>
-                    <img className="movie__poster" src={movie.Poster} alt="movie poster"/>
-                </div>
-                <div className="movie__right">
-                    <h2 className="movie__title">{movie.Title}</h2>
-                    {(movie.Genre) ? this.renderGenres(movie) : null}
-                    <div className="movie__rating">
-                        <p className="movie__score">
-                            <span>{movie.imdbRating}</span>
-                            <span>/</span>
-                            <span>10</span>
-                        </p>
-                        {(movie.Language) ? this.renderLanguages(movie) : null}
+                <Link className="movie__link" key={this.getKey()} to={path}>
+                    <div>
+                        <img className="movie__poster" src={movie.Poster} alt="movie poster"/>
                     </div>
-                    <p className="movie__description">{movie.Plot}</p>
-                </div>
+                    <div className="movie__right">
+                        <h2 className="movie__title">{movie.Title}</h2>
+                        {(movie.Genre) ? this.renderGenres(movie) : null}
+                        <div className="movie__rating">
+                            <p className="movie__score">
+                                <span>{movie.imdbRating}</span>
+                                <span>/</span>
+                                <span>10</span>
+                            </p>
+                            {(movie.Language) ? this.renderLanguages(movie) : null}
+                        </div>
+                        <p className="movie__description">{movie.Plot}</p>
+                    </div>
+                </Link>
             </div>
     }
 }
