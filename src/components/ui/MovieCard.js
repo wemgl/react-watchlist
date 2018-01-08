@@ -1,5 +1,5 @@
 import React from "react"
-import "../stylesheets/moviecard.scss"
+import "../../stylesheets/moviecard.scss"
 import fetch from "isomorphic-fetch"
 import isoLanguages from './iso-languages.json'
 import bs from 'binarysearch'

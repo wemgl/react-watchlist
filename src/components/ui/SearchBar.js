@@ -1,5 +1,5 @@
 import React from "react"
-import "../stylesheets/searchbar.scss"
+import "../../stylesheets/searchbar.scss"
 import fetch from "isomorphic-fetch"
 
 export default class SearchBar extends React.Component {

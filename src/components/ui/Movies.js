@@ -1,5 +1,5 @@
 import React from "react"
-import "../stylesheets/main.scss"
+import "../../stylesheets/main.scss"
 import MovieList from "./MovieList"
 import SearchBar from "./SearchBar"
 

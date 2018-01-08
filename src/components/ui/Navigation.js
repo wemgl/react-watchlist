@@ -4,7 +4,7 @@ import FilmIcon from "react-icons/lib/fa/film"
 import Bell from "react-icons/lib/fa/bell-o"
 import Star from "react-icons/lib/fa/star-o"
 import User from "react-icons/lib/fa/user"
-import "../stylesheets/navigation.scss"
+import "../../stylesheets/navigation.scss"
 
 export default class Navigation extends React.Component {
     render() {
