@@ -14,22 +14,22 @@ export default class Navigation extends React.Component {
                 <Router>
                     <nav className="nav">
                         <ul className="nav__list">
-                            <li>
+                            <li className="nav__item">
                                 <NavLink className="nav__link nav__link--selected" to="/">
                                     <FilmIcon/>
                                 </NavLink>
                             </li>
-                            <li>
+                            <li className="nav__item">
                                 <NavLink className="nav__link" to="#">
                                     <Bell/>
                                 </NavLink>
                             </li>
-                            <li>
+                            <li className="nav__item">
                                 <NavLink className="nav__link" to="#">
                                     <Star/>
                                 </NavLink>
                             </li>
-                            <li>
+                            <li className="nav__item">
                                 <NavLink className="nav__link" to="#">
                                     <User/>
                                 </NavLink>
