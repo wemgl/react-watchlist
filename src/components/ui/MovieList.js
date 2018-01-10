@@ -1,19 +1,14 @@
 import React from "react"
-import MovieCard from "./MovieCard";
+import MovieCard from "../containers/MovieCard";
+import App from './App'
 
-export default class MovieList extends React.Component {
+export default class MovieList extends App {
     constructor(props) {
         super(props)
-        this.getKey = this.getKey.bind(this)
-        this.keyCount = 0
-    }
-
-    getKey() {
-        return this.keyCount++
     }
 
     renderMovies() {
-        return this.props.movies.map((movie, i) => {
+        return this.props.movies.map((movie) => {
             if (movie.imdbID === "N/A") {
                 return null
             }
@@ -23,8 +18,7 @@ export default class MovieList extends React.Component {
     }
 
     conditionalRender() {
-        const {movies} = this.props
-        if (movies.length) {
+        if (this.props.movies.length) {
             return this.renderMovies()
         }
 

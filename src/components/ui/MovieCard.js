@@ -1,27 +1,21 @@
 import React from "react"
 import "../../stylesheets/moviecard.scss"
-import fetch from "isomorphic-fetch"
 import isoLanguages from './iso-languages.json'
 import bs from 'binarysearch'
 import {Link} from "react-router-dom";
+import App from './App'
 
-export default class MovieCard extends React.Component {
+export default class MovieCard extends App {
     constructor(props) {
         super(props)
-        this.state = {
-            movie: props.movie,
-            loading: false,
-            poster: ""
-        }
-        this.keyCount = 0
 
         this.renderGenres = this.renderGenres.bind(this)
         this.renderLanguages = this.renderLanguages.bind(this)
-        this.getKey = this.getKey.bind(this)
+        this.reloadComponent = this.reloadComponent.bind(this)
     }
 
-    getKey() {
-        return this.keyCount++
+    reloadComponent() {
+        this.forceUpdate()
     }
 
     renderGenres(movie) {
@@ -65,36 +59,15 @@ export default class MovieCard extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.setState({loading: true})
-        fetch(`http://www.omdbapi.com/?apikey=8a16b0ce&i=${this.state.movie.imdbID}`)
-            .then(response => {
-                if (response.status >= 400) {
-                    throw new Error("Bad response from server")
-                }
-                return response.json()
-            })
-            .then(movie => {
-                if (movie.Poster === "N/A") {
-                    movie.Poster = "/images/placeholder.png"
-                }
-                this.setState({movie, loading: false})
-            })
-            .catch(reason => {
-                console.log("Error:", reason)
-            })
-    }
-
     render() {
-        const {movie} = this.state
+        const {movie} = this.props
         if (movie.imdbID === "N/A") {
             return null
         }
 
-        const path = `/details/${movie.imdbID}`
-        return (this.state.loading) ? <p>Loading {movie.Title} data...</p>
-            : <div className="movie" data-imdbid={movie.imdbID}>
-                <Link className="movie__link" key={this.getKey()} to={path}>
+        return (
+            <div className="movie" data-imdbid={movie.imdbID}>
+                <Link className="movie__link" key={this.getKey()} to={`/details/${movie.imdbID}`}>
                     <div>
                         <img className="movie__poster" src={movie.Poster} alt="movie poster"/>
                     </div>
@@ -113,5 +86,6 @@ export default class MovieCard extends React.Component {
                     </div>
                 </Link>
             </div>
+        )
     }
 }
