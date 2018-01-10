@@ -1,9 +1,9 @@
-import React from "react"
-import {Route, Router, Switch} from "react-router-dom"
-import createBrowserHistory from "history/createBrowserHistory"
-import Navigation from "./components/ui/Navigation"
-import Movies from "./components/containers/Movies"
-import MovieDetails from "./components/containers/MovieDetails"
+import React from 'react'
+import {Route, Router, Switch} from 'react-router-dom'
+import createBrowserHistory from 'history/createBrowserHistory'
+import Navigation from './components/ui/Navigation'
+import Movies from './components/containers/Movies'
+import MovieDetails from './components/containers/MovieDetails'
 
 const history = createBrowserHistory()
 

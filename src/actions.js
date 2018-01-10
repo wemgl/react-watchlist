@@ -1,8 +1,8 @@
 import C from './constants'
-import fetch from "isomorphic-fetch";
+import fetch from 'isomorphic-fetch'
 
-let BASE_URL = "http://www.omdbapi.com/"
-let API_KEY = "8a16b0ce"
+let BASE_URL = 'http://www.omdbapi.com/'
+let API_KEY = '8a16b0ce'
 
 export const addError = message => ({
     type: C.ADD_ERROR,
@@ -37,7 +37,7 @@ export const clearFetching = () => ({
 })
 
 export const queryOMDB = query => dispatch => {
-    if (query === "") {
+    if (query === '') {
         dispatch(clearFetching())
         return
     }
@@ -48,12 +48,12 @@ export const queryOMDB = query => dispatch => {
         .then(response => {
             if (response.status >= 400) {
                 dispatch(clearFetching())
-                throw new Error("Bad response from server")
+                throw new Error('Bad response from server')
             }
             return response.json()
         })
         .then(json => {
-            let movies = json.Search;
+            let movies = json.Search
             if (movies.length > 0) {
                 dispatch(clearMovies())
             }
@@ -64,7 +64,7 @@ export const queryOMDB = query => dispatch => {
             dispatch(clearFetching())
         })
         .catch(reason => {
-            console.log("Error:", reason)
+            console.log('Error:', reason)
         })
 }
 
@@ -72,19 +72,19 @@ const fetchMovieDetails = (dispatch, movie) => {
     fetch(`${BASE_URL}?apikey=${API_KEY}&i=${movie.imdbID}`)
         .then(response => {
             if (response.status >= 400) {
-                throw new Error("Bad response from server")
+                throw new Error('Bad response from server')
             }
             return response.json()
         })
         .then(movie => {
-            if (movie.Poster === "N/A") {
-                movie.Poster = "/images/placeholder.png"
+            if (movie.Poster === 'N/A') {
+                movie.Poster = '/images/placeholder.png'
             }
             dispatch(addMovie(movie))
             dispatch(clearFetching())
         })
         .catch(reason => {
             dispatch(addError(reason.message))
-            console.log("Error:", reason)
+            console.log('Error:', reason)
         })
 }

@@ -1,14 +1,14 @@
-const path = require("path")
+const path = require('path')
 
 const config = {
-    entry: "./src/index.js",
+    entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, "dist/assets"),
-        filename: "bundle.js",
-        publicPath: "/assets/"
+        path: path.resolve(__dirname, 'dist/assets'),
+        filename: 'bundle.js',
+        publicPath: '/assets/'
     },
     devServer: {
-        contentBase: path.resolve(__dirname, "dist"),
+        contentBase: path.resolve(__dirname, 'dist'),
         port: 3000
     },
     module: {
@@ -16,23 +16,23 @@ const config = {
             {
                 test: /\.js$/,
                 exclude: /(node_modules)/,
-                loader: "babel-loader",
+                loader: 'babel-loader',
                 query: {
-                    presets: ["env", "react"]
+                    presets: ['env', 'react']
                 }
             },
             {
                 test: /\.json$/,
                 exclude: /(node_modules)/,
-                loader: "json-loader",
+                loader: 'json-loader',
             },
             {
                 test: /\.scss$/,
-                loader: "style-loader!css-loader!autoprefixer-loader!sass-loader"
+                loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader'
             },
             {
                 test: /\.(png|jpg|gif)$/,
-                loader: "file-loader?name=images/img-[hash:6].[ext]"
+                loader: 'file-loader?name=images/img-[hash:6].[ext]'
             }
         ]
     }
