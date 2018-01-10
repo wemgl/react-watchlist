@@ -19,6 +19,10 @@ export const addMovie = movie => ({
     payload: movie
 })
 
+export const clearMovies = () => ({
+    type: C.CLEAR_MOVIES
+})
+
 export const setFetching = () => ({
     type: C.SET_FETCHING
 })
@@ -48,7 +52,13 @@ export const queryOMDB = query => dispatch => {
             }
             return response.json()
         })
-        .then(json => json.Search)
+        .then(json => {
+            let movies = json.Search;
+            if (movies.length > 0) {
+                dispatch(clearMovies())
+            }
+            return movies
+        })
         .then(movies => {
             movies.forEach(movie => fetchMovieDetails(dispatch, movie))
             dispatch(clearFetching())
