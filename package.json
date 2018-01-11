@@ -6,7 +6,13 @@
   "author": "Wembley G. Leach, Jr.",
   "license": "MIT",
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server"
+    "start": "./node_modules/.bin/webpack-dev-server",
+    "test": "jest"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/src/__mocks__/searchbar.js"
+    }
   },
   "dependencies": {
     "history": "^4.7.2",
@@ -23,14 +29,19 @@
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.26.0",
+    "babel-jest": "^22.0.4",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "binarysearch": "^1.0.0",
     "css-loader": "^0.28.7",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "file-loader": "^1.1.6",
+    "jest": "^22.0.5",
     "json-loader": "^0.5.7",
     "node-sass": "^4.7.2",
+    "react-test-renderer": "^16.2.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
