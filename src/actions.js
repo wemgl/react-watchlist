@@ -47,7 +47,7 @@ export const queryOMDB = query => async (dispatch) => {
 
   try {
     let response = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=${encodeURIComponent(query)}`);
-    if (!(response.status >= 400)) {
+    if (response.status === 200) {
       let json = await response.json();
       let movies = await json.Search;
       if (movies.length > 0) {
@@ -68,7 +68,7 @@ export const queryOMDB = query => async (dispatch) => {
 const fetchMovieDetails = async (dispatch, movie) => {
   try {
     let response = await fetch(`${BASE_URL}?apikey=${API_KEY}&i=${movie.imdbID}`);
-    if (!(response.status >= 400)) {
+    if (response.status === 200) {
       let movie = await response.json();
       if (movie.Poster === 'N/A') {
         movie.Poster = '/images/placeholder.png';
