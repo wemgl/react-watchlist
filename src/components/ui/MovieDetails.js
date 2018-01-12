@@ -1,11 +1,11 @@
-import React from "react"
+import React from 'react';
 
 export default class MovieDetails extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return <p>Movie Details {this.props.match.params.imdbID}</p>
-    }
+  render() {
+    return <p>Movie Details {this.props.match.params.imdbID}</p>;
+  }
 }
