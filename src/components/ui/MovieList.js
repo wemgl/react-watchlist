@@ -8,7 +8,7 @@ export default class MovieList extends App {
   }
 
   renderMovies() {
-    return this.props.movies.map((movie) => {
+    return this.props.movies.map(movie => {
       if (movie.imdbID === 'N/A') {
         return null;
       }
