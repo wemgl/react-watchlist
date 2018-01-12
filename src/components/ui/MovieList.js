@@ -13,7 +13,7 @@ export default class MovieList extends App {
                 return null
             }
 
-            return <MovieCard key={this.getKey()} movie={movie}/>
+            return <MovieCard key={this.key} movie={movie}/>
         })
     }
 

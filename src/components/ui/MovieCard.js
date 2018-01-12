@@ -27,9 +27,9 @@ export default class MovieCard extends App {
         const renderedGenres = genres
             .map(genre => genre.trim())
             .map((genre, i) => {
-                const components = [<span key={this.getKey()} className="movie__genre">{genre}</span>]
+                const components = [<span key={this.key} className="movie__genre">{genre}</span>]
                 if (i < genres.length - 1) {
-                    components.push(<span key={this.getKey()} className="movie__genre__separator">|</span>)
+                    components.push(<span key={this.key} className="movie__genre__separator">|</span>)
                 }
                 return components
             })
@@ -55,7 +55,7 @@ export default class MovieCard extends App {
         if (codes.length > 0) {
             return codes
                 .filter(code => typeof code !== "undefined")
-                .map((code) => <p key={this.getKey()} className="movie__language">{code}</p>)
+                .map((code) => <p key={this.key} className="movie__language">{code}</p>)
         }
     }
 
@@ -67,7 +67,7 @@ export default class MovieCard extends App {
 
         return (
             <div className="movie" data-imdbid={movie.imdbID}>
-                <Link className="movie__link" key={this.getKey()} to={`/details/${movie.imdbID}`}>
+                <Link className="movie__link" key={this.key} to={`/details/${movie.imdbID}`}>
                     <div>
                         <img className="movie__poster" src={movie.Poster} alt="movie poster"/>
                     </div>
