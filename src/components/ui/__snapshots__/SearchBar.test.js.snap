@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar test receives values from props 1`] = `
+<form
+  className="search"
+  onSubmit={[Function]}
+>
+  <input
+    className="search__bar"
+    defaultValue="Kill Bill: Vol. 2"
+    name="searchbar"
+    placeholder="e.g. Kill Bill vol.2"
+    type="text"
+  />
+  <button
+    className="search__btn"
+  >
+    Search
+  </button>
+</form>
+`;
